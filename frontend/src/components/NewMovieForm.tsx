@@ -22,6 +22,14 @@ export function NewMovieForm() {
             return;
         }
 
+        if (loading) {
+            return <p>Carregando...</p>
+        }
+
+        if (error) {
+            return <p>Erro!</p>
+        }
+
         await createMovie({
             variables: {
                 name,

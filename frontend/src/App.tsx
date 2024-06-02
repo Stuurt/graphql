@@ -1,5 +1,5 @@
 import { gql, useQuery } from "@apollo/client"
-import { NewMovieForm } from "./components/NewUserForm";
+import { NewMovieForm } from "./components/NewMovieForm";
 
 type Movie = {
   id: string;
