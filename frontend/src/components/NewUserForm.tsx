@@ -1,39 +1,39 @@
 import { gql, useMutation } from "@apollo/client";
 import { FormEvent, useState } from "react";
-import { GET_USER } from "../App";
+import { GET_MOVIE } from "../App";
 
-const CREATE_USER = gql`
+const CREATE_MOVIE = gql`
     mutation ($name: String!) {
-        createUser(name: $name){
+        createMovie(name: $name){
             id
             name
         }
     }
 `;
 
-export function NewUserForm() {
+export function NewMovieForm() {
     const [name, setName] = useState('');
-    const [createUser, {data, loading, error}] = useMutation(CREATE_USER)
+    const [createMovie, {data, loading, error}] = useMutation(CREATE_MOVIE)
 
-    async function handleCreateUser(event: FormEvent) {
+    async function handleCreateMovie(event: FormEvent) {
         event.preventDefault();
 
         if (!name){
             return;
         }
 
-        await createUser({
+        await createMovie({
             variables: {
                 name,
             },
-            refetchQueries: [GET_USER]
+            refetchQueries: [GET_MOVIE]
         })
 
         console.log(data);
     }
 
     return(
-        <form onSubmit={handleCreateUser}>
+        <form onSubmit={handleCreateMovie}>
             <input type="text" value={name} onChange={e => setName(e.target.value)} />
             <button type="submit">Enviar</button>
         </form>

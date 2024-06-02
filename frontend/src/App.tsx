@@ -1,12 +1,12 @@
 import { gql, useQuery } from "@apollo/client"
-import { NewUserForm } from "./components/NewUserForm";
+import { NewMovieForm } from "./components/NewUserForm";
 
-type User = {
+type Movie = {
   id: string;
   name: string;
 }
 
-export const GET_USER = gql`
+export const GET_MOVIE = gql`
 
   query {
     users{
@@ -19,7 +19,7 @@ export const GET_USER = gql`
 
 function App() {
 
-  const { data, loading } = useQuery<{ users: User[] }>(GET_USER)
+  const { data, loading } = useQuery<{ movies: Movie[] }>(GET_MOVIE)
 
   if (loading) {
     return <p>Carregando...</p>
@@ -28,9 +28,9 @@ function App() {
   return (
     <div>
       <ul>
-        {data?.users.map(user => <li key={user.id}>{user.name}</li>)}
+        {data?.movies.map(movie => <li key={movie.id}>{movie.name}</li>)}
       </ul>
-      <NewUserForm />
+      <NewMovieForm />
     </div>
   )
 }
