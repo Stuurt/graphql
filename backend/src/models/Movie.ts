@@ -9,4 +9,14 @@ export class Movie {
 
     @Field()
     name: string;
+
+    @Field()
+    ageGroup: string;
+
+    @Field()
+    category: string;
+
+    @Field()
+    duration: string;
+    
 }

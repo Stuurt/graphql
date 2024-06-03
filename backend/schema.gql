@@ -3,15 +3,18 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
+type Movie {
+  ageGroup: String!
+  category: String!
+  duration: String!
+  id: ID!
+  name: String!
+}
+
 type Mutation {
-  createUser(name: String!): User!
+  createMovie(ageGroup: String!, category: String!, duration: String!, name: String!): Movie!
 }
 
 type Query {
-  users: [User!]!
-}
-
-type User {
-  id: ID!
-  name: String!
+  movies: [Movie!]!
 }
