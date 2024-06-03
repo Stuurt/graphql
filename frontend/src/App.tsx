@@ -4,14 +4,20 @@ import { NewMovieForm } from "./components/NewMovieForm";
 type Movie = {
   id: string;
   name: string;
+  ageGroup: string;
+  category: string;
+  duration: string;
 }
 
 export const GET_MOVIE = gql`
 
   query {
-    users{
+    movies{
       id
       name
+      ageGroup
+      category
+      duration
     }
   }
 `;
@@ -28,7 +34,7 @@ function App() {
   return (
     <div>
       <ul>
-        {data?.movies.map(movie => <li key={movie.id}>{movie.name}</li>)}
+        {data?.movies.map(movie => <li key={movie.id}>{movie.name}{movie.ageGroup}{movie.category}{movie.duration}</li>)}
       </ul>
       <NewMovieForm />
     </div>
