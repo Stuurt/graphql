@@ -20,9 +20,13 @@ export class MovieResolver {
         @Arg('name') name: string,
         @Arg('ageGroup') ageGroup: string,
         @Arg('category') category: string,
+        @Arg('releaseDate') releaseDate: string,
         @Arg('duration') duration: string,
+        @Arg('director') director: string,
+        @Arg('movieCast') movieCast: string,
+        @Arg('producer') producer: string,
     ){
-        const movie = { id: crypto.randomUUID(), name, ageGroup, category, duration}
+        const movie = { id: crypto.randomUUID(), name, ageGroup, category, releaseDate, duration, director, movieCast, producer}
 
         this.data.push(movie)
 

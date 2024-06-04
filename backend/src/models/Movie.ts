@@ -17,6 +17,18 @@ export class Movie {
     category: string;
 
     @Field()
+    releaseDate: string;
+
+    @Field()
     duration: string;
+
+    @Field()
+    director: string;
+
+    @Field()
+    movieCast: string;
+
+    @Field()
+    producer: string;
     
 }

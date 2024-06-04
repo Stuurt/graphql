@@ -6,18 +6,26 @@ type Movie = {
   name: string;
   ageGroup: string;
   category: string;
+  releaseDate: string;
   duration: string;
+  director: string;
+  movieCast: string;
+  producer: string;
 }
 
 export const GET_MOVIE = gql`
 
-  query {
+  query (){
     movies{
       id
       name
       ageGroup
       category
+      releaseDate
       duration
+      director
+      movieCast
+      producer
     }
   }
 `;
@@ -34,7 +42,7 @@ function App() {
   return (
     <div>
       <ul>
-        {data?.movies.map(movie => <li key={movie.id}>{movie.name}{movie.ageGroup}{movie.category}{movie.duration}</li>)}
+        {data?.movies.map(movie => <li key={movie.id}>{movie.name}{movie.ageGroup}{movie.category}{movie.releaseDate}{movie.duration}{movie.director}{movie.movieCast}{movie.producer}</li>)}
       </ul>
       <NewMovieForm />
     </div>
