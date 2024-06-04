@@ -3,16 +3,22 @@ import { FormEvent, useState } from "react";
 import { GET_MOVIE } from "../App";
 
 const CREATE_MOVIE = gql`
-    mutation ($name: String!) {
-        createMovie(name: $name){
+    mutation {
+        createMovie(){
             id
             name
+            ageGroup
+            category
+            duration
         }
     }
 `;
 
 export function NewMovieForm() {
     const [name, setName] = useState('');
+    const [ageGroup, setAgeGroup] = useState('');
+    const [category, setCategory] = useState('');
+    const [duration, setDuration] = useState('');
     const [createMovie, {data, loading, error}] = useMutation(CREATE_MOVIE)
 
     async function handleCreateMovie(event: FormEvent) {
@@ -33,6 +39,9 @@ export function NewMovieForm() {
         await createMovie({
             variables: {
                 name,
+                ageGroup,
+                category,
+                duration,
             },
             refetchQueries: [GET_MOVIE]
         })
@@ -43,6 +52,9 @@ export function NewMovieForm() {
     return(
         <form onSubmit={handleCreateMovie}>
             <input type="text" value={name} onChange={e => setName(e.target.value)} />
+            <input type="text" value={ageGroup} onChange={e => setAgeGroup(e.target.value)} />
+            <input type="text" value={category} onChange={e => setCategory(e.target.value)} />
+            <input type="text" value={duration} onChange={e => setDuration(e.target.value)} />
             <button type="submit">Enviar</button>
         </form>
     )
