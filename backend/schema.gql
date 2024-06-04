@@ -6,13 +6,17 @@
 type Movie {
   ageGroup: String!
   category: String!
+  director: String!
   duration: String!
   id: ID!
+  movieCast: String!
   name: String!
+  producer: String!
+  releaseDate: String!
 }
 
 type Mutation {
-  createMovie(ageGroup: String!, category: String!, duration: String!, name: String!): Movie!
+  createMovie(ageGroup: String!, category: String!, director: String!, duration: String!, movieCast: String!, name: String!, producer: String!, releaseDate: String!): Movie!
 }
 
 type Query {
