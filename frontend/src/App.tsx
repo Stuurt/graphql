@@ -35,6 +35,8 @@ function App() {
 
   const { data, loading } = useQuery<{ movies: Movie[] }>(GET_MOVIE)
 
+  console.log(data)
+
   if (loading) {
     return <p>Carregando...</p>
   }
@@ -42,9 +44,13 @@ function App() {
   return (
     <div>
       <ul>
-        {data?.movies.map(movie => <li key={movie.id}>{movie.name}{movie.ageGroup}{movie.category}{movie.releaseDate}{movie.duration}{movie.director}{movie.movieCast}{movie.producer}</li>)}
+        {data?.movies.map(movie => <li key={movie.id}>
+          {movie.name}{movie.ageGroup}
+          {movie.category}{movie.releaseDate}
+          {movie.duration}{movie.director}
+          {movie.movieCast}{movie.producer}</li>)}
       </ul>
-      <NewMovieForm />
+      <NewMovieForm /> ola
     </div>
   )
 }
