@@ -26,7 +26,8 @@ export class MovieResolver {
         @Arg('movieCast') movieCast: string,
         @Arg('producer') producer: string,
     ){
-        const movie = { id: crypto.randomUUID(), name, ageGroup,
+        const movie = { id: crypto.randomUUID(),
+            name, ageGroup,
             category, releaseDate,
             duration, director,
             movieCast, producer}

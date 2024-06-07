@@ -15,7 +15,7 @@ type Movie = {
 
 export const GET_MOVIE = gql`
 
-  query (){
+  query {
     movies{
       id
       name
@@ -45,12 +45,12 @@ function App() {
     <div>
       <ul>
         {data?.movies.map(movie => <li key={movie.id}>
-          {movie.name}{movie.ageGroup}
-          {movie.category}{movie.releaseDate}
-          {movie.duration}{movie.director}
-          {movie.movieCast}{movie.producer}</li>)}
+          <h4>Nome do filme: {movie.name}</h4> <h4>Faixa etária: {movie.ageGroup} </h4>
+          <h4>Categoria: {movie.category}</h4> <h4>Data de lançamento: {movie.releaseDate}</h4>
+          <h4>Duração: {movie.duration}</h4> <h4>Diretor: {movie.director}</h4>
+          <h4>Elenco: {movie.movieCast}</h4> <h4>Produtor: {movie.producer}</h4> -------- </li>)}
       </ul>
-      <NewMovieForm /> ola
+      <NewMovieForm />
     </div>
   )
 }
