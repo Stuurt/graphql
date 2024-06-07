@@ -3,17 +3,31 @@ import { FormEvent, useState } from "react";
 import { GET_MOVIE } from "../App";
 
 const CREATE_MOVIE = gql`
-    mutation {
-        createMovie(){
-            id
-            name
-            ageGroup
-            category
-            releaseDate
-            duration
-            director
-            movieCast
-            producer
+    mutation ($name: String!,
+            $ageGroup: String!,
+            $category: String!,
+            $releaseDate: String!,
+            $duration: String!,
+            $director: String!,
+            $movieCast: String!,
+            $producer: String!){
+        createMovie(name: $name,
+                    ageGroup: $ageGroup,
+                    category: $category,
+                    releaseDate: $releaseDate,
+                    duration: $duration,
+                    director:$director,
+                    movieCast: $movieCast,
+                    producer: $producer){
+                            id
+                            name
+                            ageGroup
+                            category
+                            releaseDate
+                            duration
+                            director
+                            movieCast
+                            producer
         }
     }
 `;
@@ -32,7 +46,7 @@ export function NewMovieForm() {
     async function handleCreateMovie(event: FormEvent) {
         event.preventDefault();
 
-        if (!name){
+        if (!name || !ageGroup || !category || !releaseDate || !duration || !director || !movieCast || !producer){
             return;
         }
 
