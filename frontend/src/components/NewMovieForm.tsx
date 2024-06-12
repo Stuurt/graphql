@@ -77,14 +77,14 @@ export function NewMovieForm() {
 
     return(
         <form onSubmit={handleCreateMovie}>
-            <input type="text" value={name} onChange={e => setName(e.target.value)} />
-            <input type="text" value={ageGroup} onChange={e => setAgeGroup(e.target.value)} />
-            <input type="text" value={category} onChange={e => setCategory(e.target.value)} />
-            <input type="text" value={releaseDate} onChange={e => setReleaseDate(e.target.value)} />
-            <input type="text" value={duration} onChange={e => setDuration(e.target.value)} />
-            <input type="text" value={director} onChange={e => setDirector(e.target.value)} />
-            <input type="text" value={movieCast} onChange={e => setMovieCast(e.target.value)} />
-            <input type="text" value={producer} onChange={e => setProducer(e.target.value)} />
+            <p>Nome do Filme: <input type="text" value={name} onChange={e => setName(e.target.value)} /></p>  
+            <p>Faixa Etária: <input type="text" value={ageGroup} onChange={e => setAgeGroup(e.target.value)} /></p>
+            <p>Categoria: <input type="text" value={category} onChange={e => setCategory(e.target.value)} /></p>
+            <p>Data de Lançamento: <input type="text" value={releaseDate} onChange={e => setReleaseDate(e.target.value)} /></p>
+            <p>Duração: <input type="text" value={duration} onChange={e => setDuration(e.target.value)} /></p>
+            <p>Diretor: <input type="text" value={director} onChange={e => setDirector(e.target.value)} /></p>
+            <p>Elenco: <input type="text" value={movieCast} onChange={e => setMovieCast(e.target.value)} /></p>
+            <p>Produtor: <input type="text" value={producer} onChange={e => setProducer(e.target.value)} /></p>
             <button type="submit">Enviar</button>
         </form>
     )
